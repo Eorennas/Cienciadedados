@@ -271,3 +271,5 @@ st.info(
     "O gráfico de barras de idade média permite uma comparação direta entre os clubes. "
     "O gráfico de valor médio por jogador ajuda a analisar a 'qualidade' média do elenco, complementando a visão do valor total."
 )
+
+
