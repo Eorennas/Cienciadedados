@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pygwalker as pyg
 
 # --- Configurações Iniciais da Página ---
 st.set_page_config(
@@ -36,11 +35,12 @@ def carregar_dados(caminho_arquivo):
     return df
 
 # --- Carregamento dos Dados ---
-# Substitua 'Tabela_Clubes_2014.csv' pelo caminho correto do seu arquivo se necessário
+# O caminho foi ajustado para funcionar no Streamlit Cloud, que executa
+# o script a partir da pasta raiz do repositório.
 try:
-    df_clubes = carregar_dados('Tabela_Clubes_2014.csv')
+    df_clubes = carregar_dados('CienciadeDados/Tabela_Clubes_2014.csv')
 except FileNotFoundError:
-    st.error("Arquivo 'Tabela_Clubes_2014.csv' não encontrado. Por favor, verifique se o arquivo está na mesma pasta que o script.")
+    st.error("Arquivo 'CienciadeDados/Tabela_Clubes_2014.csv' não encontrado. Verifique se a estrutura de pastas no seu repositório GitHub está correta.")
     st.stop()
 
 
@@ -253,7 +253,7 @@ with col4:
         # Define a posição y do texto (no meio da barra)
         y_pos = bar.get_y() + bar.get_height() / 2
         # Adiciona o texto ao gráfico
-        ax5.text(width, y_pos, label_text, va='center')
+        ax5.text(width + 0.3, y_pos, label_text, va='center') # Adicionado um pequeno deslocamento horizontal
 
     ax5.set_title('Valor Médio de Mercado por Jogador em 2014')
     ax5.set_xlabel('Valor Médio por Jogador (em €)')
@@ -261,7 +261,7 @@ with col4:
     
     # Formata o eixo X para milhões
     ax5.xaxis.set_major_formatter(lambda x, pos: f'€{x/1_000_000:.1f}M')
-    ax5.set_xlim(right=ax5.get_xlim()[1] * 1.15) # Aumenta o espaço para os rótulos
+    ax5.set_xlim(right=ax5.get_xlim()[1] * 1.2) # Aumenta o espaço para os rótulos
     
     plt.tight_layout()
     st.pyplot(fig5)
@@ -271,5 +271,3 @@ st.info(
     "O gráfico de barras de idade média permite uma comparação direta entre os clubes. "
     "O gráfico de valor médio por jogador ajuda a analisar a 'qualidade' média do elenco, complementando a visão do valor total."
 )
-
-
