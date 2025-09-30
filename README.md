@@ -40,11 +40,13 @@ A aplicação exibe tabelas, métricas e gráficos comparativos para auxiliar na
 
 ## 📂 Estrutura do Projeto  
 
+```text
 ├── CienciadeDados/
-│ └── Tabela_Clubes_2014.csv # Dataset com informações dos clubes
-├── app.py # Código principal da aplicação Streamlit
-├── requirements.txt # Dependências do projeto
-└── README.md # Documentação do projeto
+│   └── Tabela_Clubes_2014.csv  # Dataset com informações dos clubes
+├── app.py                      # Código principal da aplicação Streamlit
+├── requirements.txt            # Dependências do projeto
+└── README.md                   # Documentação do projeto
+```
 
 ---
 
